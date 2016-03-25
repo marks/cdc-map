@@ -1,0 +1,417 @@
+{
+  "meta" : {
+    "view" : {
+      "id" : "t95q-3qyk",
+      "name" : "[Grouby Country] Sample of Combines NNDSS datasets",
+      "averageRating" : 0,
+      "createdAt" : 1458839964,
+      "displayType" : "table",
+      "downloadCount" : 0,
+      "newBackend" : false,
+      "numberOfComments" : 0,
+      "oid" : 19228050,
+      "publicationAppendEnabled" : false,
+      "publicationDate" : 1458333641,
+      "publicationGroup" : 9092405,
+      "publicationStage" : "published",
+      "rowsUpdatedAt" : 1458333507,
+      "rowsUpdatedBy" : "dqu3-3w2u",
+      "tableId" : 9092405,
+      "totalTimesRated" : 0,
+      "viewCount" : 0,
+      "viewLastModified" : 1458840451,
+      "viewType" : "tabular",
+      "columns" : [ {
+        "id" : -1,
+        "name" : "sid",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":sid",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "id",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":id",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "position",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":position",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "created_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":created_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_at",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_at",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "updated_meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":updated_meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : -1,
+        "name" : "meta",
+        "dataTypeName" : "meta_data",
+        "fieldName" : ":meta",
+        "position" : 0,
+        "renderTypeName" : "meta_data",
+        "format" : { }
+      }, {
+        "id" : 248248589,
+        "name" : "Disease",
+        "dataTypeName" : "text",
+        "fieldName" : "disease",
+        "position" : 1,
+        "renderTypeName" : "text",
+        "tableColumnId" : 35109564,
+        "width" : 184,
+        "format" : { }
+      }, {
+        "id" : 248248588,
+        "name" : "Reporting Area",
+        "dataTypeName" : "text",
+        "fieldName" : "reporting_area",
+        "position" : 2,
+        "renderTypeName" : "text",
+        "tableColumnId" : 35109565,
+        "width" : 268,
+        "format" : { }
+      }, {
+        "id" : 248248590,
+        "name" : "MMWR Year",
+        "dataTypeName" : "number",
+        "fieldName" : "mmwr_year",
+        "position" : 3,
+        "renderTypeName" : "number",
+        "tableColumnId" : 35109566,
+        "width" : 208,
+        "format" : { }
+      }, {
+        "id" : 248248591,
+        "name" : "MMWR Week",
+        "dataTypeName" : "number",
+        "fieldName" : "mmwr_week",
+        "position" : 4,
+        "renderTypeName" : "number",
+        "tableColumnId" : 35109567,
+        "width" : 208,
+        "format" : { }
+      }, {
+        "id" : 248248592,
+        "name" : "Current week",
+        "dataTypeName" : "number",
+        "fieldName" : "current_week",
+        "position" : 5,
+        "renderTypeName" : "number",
+        "tableColumnId" : 35109568,
+        "width" : 244,
+        "format" : { }
+      }, {
+        "id" : 248248593,
+        "name" : "Current week, flag",
+        "dataTypeName" : "text",
+        "fieldName" : "current_week_flag",
+        "position" : 6,
+        "renderTypeName" : "text",
+        "tableColumnId" : 35109569,
+        "width" : 316,
+        "format" : { }
+      }, {
+        "id" : 248248594,
+        "name" : "Previous 52 weeks Med",
+        "dataTypeName" : "number",
+        "fieldName" : "previous_52_weeks_med",
+        "position" : 7,
+        "renderTypeName" : "number",
+        "tableColumnId" : 35109570,
+        "width" : 352,
+        "format" : { }
+      }, {
+        "id" : 248248595,
+        "name" : "Previous 52 weeks Med, flag",
+        "dataTypeName" : "text",
+        "fieldName" : "previous_52_weeks_med_flag",
+        "position" : 8,
+        "renderTypeName" : "text",
+        "tableColumnId" : 35109571,
+        "width" : 424,
+        "format" : { }
+      }, {
+        "id" : 248248596,
+        "name" : "Previous 52 weeks Max",
+        "dataTypeName" : "number",
+        "fieldName" : "previous_52_weeks_max",
+        "position" : 9,
+        "renderTypeName" : "number",
+        "tableColumnId" : 35109572,
+        "width" : 352,
+        "format" : { }
+      }, {
+        "id" : 248248597,
+        "name" : "Previous 52 weeks Max, flag",
+        "dataTypeName" : "text",
+        "fieldName" : "previous_52_weeks_max_flag",
+        "position" : 10,
+        "renderTypeName" : "text",
+        "tableColumnId" : 35109573,
+        "width" : 424,
+        "format" : { }
+      }, {
+        "id" : 248248598,
+        "name" : "Cum 2016",
+        "dataTypeName" : "number",
+        "fieldName" : "cum_2016",
+        "position" : 11,
+        "renderTypeName" : "number",
+        "tableColumnId" : 35109574,
+        "width" : 196,
+        "format" : { }
+      }, {
+        "id" : 248248599,
+        "name" : "Cum 2016, flag",
+        "dataTypeName" : "text",
+        "fieldName" : "cum_2016_flag",
+        "position" : 12,
+        "renderTypeName" : "text",
+        "tableColumnId" : 35109575,
+        "width" : 268,
+        "format" : { }
+      }, {
+        "id" : 248248600,
+        "name" : "Cum 2015",
+        "dataTypeName" : "number",
+        "fieldName" : "cum_2015",
+        "position" : 13,
+        "renderTypeName" : "number",
+        "tableColumnId" : 35109576,
+        "width" : 196,
+        "format" : { }
+      }, {
+        "id" : 248248601,
+        "name" : "Cum 2015, flag",
+        "dataTypeName" : "text",
+        "fieldName" : "cum_2015_flag",
+        "position" : 14,
+        "renderTypeName" : "text",
+        "tableColumnId" : 35109577,
+        "width" : 268,
+        "format" : { }
+      } ],
+      "grants" : [ {
+        "inherited" : true,
+        "type" : "viewer",
+        "flags" : [ "public" ]
+      } ],
+      "metadata" : {
+        "custom_fields" : {
+          "Common Core" : {
+            "Homepage" : "",
+            "Issued" : "",
+            "Public Access Level" : "",
+            "Contact Name" : "B",
+            "Bureau Code" : "D",
+            "Temporal Applicability" : "",
+            "Primary IT Investment UII" : "",
+            "Update Frequency" : "",
+            "Access Level Comment" : "",
+            "Contact Email" : "C",
+            "Geographic Coverage" : "",
+            "Described By" : "",
+            "Publisher" : "A",
+            "System of Records" : "",
+            "Theme" : "",
+            "Is Quality Data" : "",
+            "License" : "",
+            "References" : "",
+            "Language" : "",
+            "Program Code" : "e"
+          }
+        },
+        "renderTypeConfig" : {
+          "visible" : {
+            "table" : true
+          }
+        },
+        "rowLabel" : "Row",
+        "availableDisplayTypes" : [ "table", "fatrow", "page" ],
+        "jsonQuery" : {
+          "where" : {
+            "subColumn" : "text",
+            "value" : "MAINE",
+            "operator" : "EQUALS",
+            "columnFieldName" : "reporting_area"
+          }
+        }
+      },
+      "owner" : {
+        "id" : "5gst-5ji3",
+        "displayName" : "Jaime Sanchez",
+        "emailUnsubscribed" : false,
+        "profileLastModified" : 1458835288,
+        "screenName" : "Jaime Sanchez",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_sdp", "edit_site_theme", "moderate_comments", "manage_users", "chown_datasets", "edit_nominations", "approve_nominations", "feature_items", "federations", "manage_stories", "manage_approval", "change_configurations", "view_domain", "view_others_datasets", "edit_pages", "create_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "create_dashboards", "manage_provenance", "create_story", "edit_story_title_desc", "create_story_copy", "delete_story", "manage_story_collaborators", "manage_story_visibility", "manage_story_public_version", "edit_story", "view_unpublished_story", "view_story", "view_all_dataset_status_logs" ],
+        "flags" : [ "admin" ]
+      },
+      "query" : {
+        "filterCondition" : {
+          "type" : "operator",
+          "value" : "AND",
+          "children" : [ {
+            "type" : "operator",
+            "value" : "EQUALS",
+            "children" : [ {
+              "columnId" : 248248588,
+              "type" : "column",
+              "value" : "TEXT"
+            }, {
+              "type" : "literal",
+              "value" : "MAINE"
+            } ],
+            "metadata" : {
+              "unifiedVersion" : 2
+            }
+          } ],
+          "metadata" : {
+            "unifiedVersion" : 2
+          }
+        }
+      },
+      "rights" : [ "read", "write", "add", "delete", "grant", "add_column", "remove_column", "update_column", "update_view", "delete_view" ],
+      "tableAuthor" : {
+        "id" : "dqu3-3w2u",
+        "displayName" : "Mark Silverberg",
+        "profileImageUrlLarge" : "/api/users/dqu3-3w2u/profile_images/LARGE",
+        "profileImageUrlMedium" : "/api/users/dqu3-3w2u/profile_images/THUMB",
+        "profileImageUrlSmall" : "/api/users/dqu3-3w2u/profile_images/TINY",
+        "screenName" : "Mark Silverberg",
+        "rights" : [ "create_datasets", "edit_others_datasets", "edit_sdp", "edit_site_theme", "moderate_comments", "manage_users", "chown_datasets", "edit_nominations", "approve_nominations", "feature_items", "federations", "manage_stories", "manage_approval", "change_configurations", "view_domain", "view_others_datasets", "edit_pages", "create_pages", "view_goals", "view_dashboards", "edit_goals", "edit_dashboards", "create_dashboards", "manage_provenance", "create_story", "edit_story_title_desc", "create_story_copy", "delete_story", "manage_story_collaborators", "manage_story_visibility", "manage_story_public_version", "edit_story", "view_unpublished_story", "view_story", "view_all_dataset_status_logs" ],
+        "flags" : [ "admin" ]
+      },
+      "viewFilters" : {
+        "type" : "operator",
+        "value" : "AND",
+        "children" : [ {
+          "type" : "operator",
+          "value" : "EQUALS",
+          "children" : [ {
+            "columnId" : 248248588,
+            "type" : "column",
+            "value" : "TEXT"
+          }, {
+            "type" : "literal",
+            "value" : "MAINE"
+          } ],
+          "metadata" : {
+            "unifiedVersion" : 2
+          }
+        } ],
+        "metadata" : {
+          "unifiedVersion" : 2
+        }
+      }
+    }
+  },
+  "data" : [ [ 4, "0217FECA-13EC-4AB1-86B0-0C7E32CCFAED", 4, 1458333491, "897482", 1458333491, "897482", null, "Babesiosis", "MAINE", "2016", "1", null, "-", "0", null, "6", null, null, "-", null, "-" ]
+, [ 71, "11F13A1A-6224-479F-A7B1-7A233D42383E", 71, 1458333491, "897482", 1458333491, "897482", null, "Babesiosis", "MAINE", "2016", "2", null, "-", "0", null, "6", null, null, "-", null, "-" ]
+, [ 138, "6725D5DC-2F81-4F28-8B71-B7F44B5CE860", 138, 1458333491, "897482", 1458333491, "897482", null, "Babesiosis", "MAINE", "2016", "3", null, "-", "0", null, "6", null, null, "-", null, "-" ]
+, [ 205, "552EF9D4-9B4B-4359-8234-7990AF8F04CD", 205, 1458333491, "897482", 1458333491, "897482", null, "Babesiosis", "MAINE", "2016", "4", null, "-", "0", null, "6", null, null, "-", null, "-" ]
+, [ 272, "F5DEA059-6844-471B-8747-26E1D9B2D8C8", 272, 1458333491, "897482", 1458333491, "897482", null, "Babesiosis", "MAINE", "2016", "5", null, "-", "0", null, "6", null, null, "-", null, "-" ]
+, [ 339, "D3041E7C-CC8D-4BD3-9F7F-7CAA65884829", 339, 1458333491, "897482", 1458333491, "897482", null, "Babesiosis", "MAINE", "2016", "6", null, "-", "0", null, "6", null, null, "-", null, "-" ]
+, [ 406, "1D074628-2ECD-4BDE-8483-7900DCF01D3B", 406, 1458333491, "897482", 1458333491, "897482", null, "Babesiosis", "MAINE", "2016", "7", null, "-", "0", null, "6", null, "1", null, null, "-" ]
+, [ 473, "5F8D03EA-ED41-4596-A7AC-4AA9A7B1A823", 473, 1458333492, "897482", 1458333492, "897482", null, "Babesiosis", "MAINE", "2016", "8", null, "-", "0", null, "6", null, "1", null, null, "-" ]
+, [ 540, "6749DFEA-3898-4097-8E15-7642F3660574", 540, 1458333492, "897482", 1458333492, "897482", null, "Babesiosis", "MAINE", "2016", "9", null, "-", "0", null, "6", null, "1", null, null, "-" ]
+, [ 607, "25C26BAA-6FDE-4A15-A8E7-80F69C316D0F", 607, 1458333492, "897482", 1458333492, "897482", null, "Babesiosis", "MAINE", "2016", "10", null, "-", "0", null, "6", null, "1", null, null, "-" ]
+, [ 674, "0B1733C3-F170-4350-8FDB-53227DE6E989", 674, 1458333492, "897482", 1458333492, "897482", null, "Campylobacteriosis", "MAINE", "2016", "1", "2", null, "4", null, "8", null, "2", null, "5", null ]
+, [ 741, "590DADC4-ADE6-4767-B704-556726CB8CA0", 741, 1458333492, "897482", 1458333492, "897482", null, "Campylobacteriosis", "MAINE", "2016", "2", null, "-", "4", null, "8", null, "2", null, "8", null ]
+, [ 808, "45064A59-371C-438C-A742-1EE8A4036EC6", 808, 1458333492, "897482", 1458333492, "897482", null, "Campylobacteriosis", "MAINE", "2016", "3", null, "-", "4", null, "8", null, "2", null, "8", null ]
+, [ 875, "1D41DEA8-7225-4659-BD28-F0A67B3B6522", 875, 1458333492, "897482", 1458333492, "897482", null, "Campylobacteriosis", "MAINE", "2016", "4", null, "-", "4", null, "8", null, "2", null, "9", null ]
+, [ 942, "BA3D442D-6548-4C23-8BB8-0B6F6D0FC9DF", 942, 1458333492, "897482", 1458333492, "897482", null, "Campylobacteriosis", "MAINE", "2016", "5", "5", null, "4", null, "8", null, "8", null, "14", null ]
+, [ 1009, "CDA0E216-F750-4A64-982C-532732C8BEAB", 1009, 1458333492, "897482", 1458333492, "897482", null, "Campylobacteriosis", "MAINE", "2016", "6", "3", null, "4", null, "8", null, "11", null, "16", null ]
+, [ 1076, "2D96B65A-940C-4726-85E9-188C8175ADB7", 1076, 1458333492, "897482", 1458333492, "897482", null, "Campylobacteriosis", "MAINE", "2016", "7", "2", null, "4", null, "8", null, "15", null, "18", null ]
+, [ 1143, "7DD5BD69-FDEA-4856-A2F1-3B5B0B014919", 1143, 1458333492, "897482", 1458333492, "897482", null, "Campylobacteriosis", "MAINE", "2016", "8", "1", null, "4", null, "8", null, "18", null, "20", null ]
+, [ 1210, "DD43A9E1-D900-4A03-970E-D14440F80107", 1210, 1458333492, "897482", 1458333492, "897482", null, "Campylobacteriosis", "MAINE", "2016", "9", "1", null, "4", null, "8", null, "21", null, "22", null ]
+, [ 1277, "D7B2690F-2762-4602-AE97-2285BD9CBC74", 1277, 1458333493, "897482", 1458333493, "897482", null, "Campylobacteriosis", "MAINE", "2016", "10", null, "-", "4", null, "11", null, "21", null, "25", null ]
+, [ 1344, "67B76E94-33AB-4BEA-9753-CE0F89DB3BDF", 1344, 1458333493, "897482", 1458333493, "897482", null, "Chlamydia trachomatis infection", "MAINE", "2016", "1", null, "-", "76", null, "122", null, null, "-", "95", null ]
+, [ 1411, "C165B7CD-CEF7-4B38-82E0-80D6DC8E663E", 1411, 1458333493, "897482", 1458333493, "897482", null, "Chlamydia trachomatis infection", "MAINE", "2016", "2", null, "-", "76", null, "122", null, null, "-", "162", null ]
+, [ 1478, "A7672BA1-F546-4A7C-928E-929B3F4C874A", 1478, 1458333493, "897482", 1458333493, "897482", null, "Chlamydia trachomatis infection", "MAINE", "2016", "3", null, "-", "76", null, "122", null, null, "-", "253", null ]
+, [ 1545, "34632C3D-E996-4875-AAAA-168AB376DFB8", 1545, 1458333493, "897482", 1458333493, "897482", null, "Chlamydia trachomatis infection", "MAINE", "2016", "4", null, "-", "75", null, "122", null, null, "-", "320", null ]
+, [ 1612, "0C811747-25BB-429C-B550-BC193443E647", 1612, 1458333493, "897482", 1458333493, "897482", null, "Chlamydia trachomatis infection", "MAINE", "2016", "5", null, "-", "75", null, "122", null, null, "-", "400", null ]
+, [ 1679, "734F9F1C-4FDD-4583-BFD2-D963AD717A9C", 1679, 1458333493, "897482", 1458333493, "897482", null, "Chlamydia trachomatis infection", "MAINE", "2016", "6", null, "-", "74", null, "122", null, null, "-", "444", null ]
+, [ 1746, "2C0697CB-AFB9-469E-B7AA-C61623E05448", 1746, 1458333493, "897482", 1458333493, "897482", null, "Chlamydia trachomatis infection", "MAINE", "2016", "7", null, "-", "74", null, "122", null, null, "-", "532", null ]
+, [ 1813, "A6626766-B962-4608-AC54-1A02D461D7B2", 1813, 1458333493, "897482", 1458333493, "897482", null, "Chlamydia trachomatis infection", "MAINE", "2016", "8", "52", null, "74", null, "122", null, "112", null, "608", null ]
+, [ 1880, "896A607D-59C7-4152-9DE2-7B73017B2ADA", 1880, 1458333493, "897482", 1458333493, "897482", null, "Chlamydia trachomatis infection", "MAINE", "2016", "9", "59", null, "73", null, "122", null, "184", null, "692", null ]
+, [ 1947, "8200F7CE-F214-44F9-BF03-A4C3194C79B5", 1947, 1458333493, "897482", 1458333493, "897482", null, "Chlamydia trachomatis infection", "MAINE", "2016", "10", null, "-", "73", null, "122", null, "184", null, "759", null ]
+, [ 2014, "81F5D10A-DAC7-43DC-9B50-9206B948BD3C", 2014, 1458333493, "897482", 1458333493, "897482", null, "Coccidioidomycosis", "MAINE", "2016", "1", null, "N", "0", null, "0", null, null, "N", null, "N" ]
+, [ 2081, "602D4BBA-EA0E-4625-BE6B-E1FB6F2D1285", 2081, 1458333493, "897482", 1458333493, "897482", null, "Coccidioidomycosis", "MAINE", "2016", "2", null, "N", "0", null, "0", null, null, "N", null, "N" ]
+, [ 2148, "B9731312-C7F4-4F19-BDC9-21CB12C214F0", 2148, 1458333493, "897482", 1458333493, "897482", null, "Coccidioidomycosis", "MAINE", "2016", "3", null, "N", "0", null, "0", null, null, "N", null, "N" ]
+, [ 2215, "CE3867DB-2366-428E-89C6-7CEBF7430681", 2215, 1458333493, "897482", 1458333493, "897482", null, "Coccidioidomycosis", "MAINE", "2016", "4", null, "N", "0", null, "0", null, null, "N", null, "N" ]
+, [ 2282, "AF51B28C-1065-42C7-95A3-7188C3FE8D2E", 2282, 1458333493, "897482", 1458333493, "897482", null, "Coccidioidomycosis", "MAINE", "2016", "5", null, "N", "0", null, "0", null, null, "N", null, "N" ]
+, [ 2349, "5A2F0DFA-4477-4B63-90ED-F852D25795F9", 2349, 1458333493, "897482", 1458333493, "897482", null, "Coccidioidomycosis", "MAINE", "2016", "6", null, "N", "0", null, "0", null, null, "N", null, "N" ]
+, [ 2416, "0D5654DF-96E7-4911-B4DB-8798D7CCCA85", 2416, 1458333493, "897482", 1458333493, "897482", null, "Coccidioidomycosis", "MAINE", "2016", "7", null, "N", "0", null, "0", null, null, "N", null, "N" ]
+, [ 2483, "4F744322-D116-4ECE-8B79-ED051D379CF3", 2483, 1458333494, "897482", 1458333494, "897482", null, "Coccidioidomycosis", "MAINE", "2016", "8", null, "N", "0", null, "0", null, null, "N", null, "N" ]
+, [ 2550, "AB5DD178-B182-4310-A842-FF6F96904948", 2550, 1458333494, "897482", 1458333494, "897482", null, "Coccidioidomycosis", "MAINE", "2016", "9", null, "N", "0", null, "0", null, null, "N", null, "N" ]
+, [ 2617, "83DAA1E1-430F-4684-8F6E-16D0D6E242E9", 2617, 1458333494, "897482", 1458333494, "897482", null, "Coccidioidomycosis", "MAINE", "2016", "10", null, "N", "0", null, "0", null, null, "N", null, "N" ]
+, [ 2684, "3376DBD8-DE63-441F-8BC1-0BC28BC6C94B", 2684, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "1", null, "-", "0", null, "4", null, null, "-", null, "-" ]
+, [ 2751, "006B3A1A-37B2-41CE-A1A7-64DC51BDA3A1", 2751, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "2", null, "-", "0", null, "4", null, null, "-", null, "-" ]
+, [ 2818, "8496153A-4BC1-4595-B76C-4457E0C7114F", 2818, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "2", null, "-", "0", null, "4", null, null, "-", null, "-" ]
+, [ 2885, "7F0A694F-E9A2-401E-89F5-A6AE09AE181F", 2885, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "3", null, "-", "0", null, "4", null, null, "-", null, "-" ]
+, [ 2952, "CFD88296-0763-4305-B051-C444CE67BFA9", 2952, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "4", null, "-", "0", null, "4", null, null, "-", null, "-" ]
+, [ 3019, "B94FCDD1-CC88-4DFD-A214-ACF1077D061E", 3019, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "5", "1", null, "0", null, "4", null, "1", null, "1", null ]
+, [ 3086, "FA969B0A-2B22-48B6-9FAC-8764EDCD8A8A", 3086, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "6", null, "-", "0", null, "4", null, "2", null, "2", null ]
+, [ 3153, "DE0E4999-514A-4B60-BA5A-687CBC721F81", 3153, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "7", null, "-", "0", null, "4", null, "2", null, "2", null ]
+, [ 3220, "39F6320C-8871-432D-ABC8-31125AB03815", 3220, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "8", null, "-", "0", null, "4", null, "2", null, "2", null ]
+, [ 3287, "05E7C8BF-3BA3-4FDD-AA3C-1B8E9919E6F2", 3287, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "9", "1", null, "0", null, "4", null, "3", null, "5", null ]
+, [ 3354, "53EC3650-6D93-406B-AC6D-55B9920F22D0", 3354, 1458333494, "897482", 1458333494, "897482", null, "Cryptosporidiosis", "MAINE", "2016", "10", null, "-", "0", null, "4", null, "3", null, "7", null ]
+, [ 3421, "D7F9CAA9-B82A-4720-944A-B55A86911241", 3421, 1458333494, "897482", 1458333494, "897482", null, "Dengue§", "MAINE", "2016", "1", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 3488, "969CE45D-8396-4421-A769-2A9D92CA672A", 3488, 1458333494, "897482", 1458333494, "897482", null, "Dengue§", "MAINE", "2016", "2", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 3555, "FBFCE486-A1FE-4EC0-A46A-2F45E989EA4A", 3555, 1458333494, "897482", 1458333494, "897482", null, "Dengue§", "MAINE", "2016", "2", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 3622, "B302EFD6-D476-4755-ACDE-8BACEEA04A4F", 3622, 1458333495, "897482", 1458333495, "897482", null, "Dengue§", "MAINE", "2016", "3", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 3689, "35C87ECA-1C6E-4F37-9F34-605709A1E4B9", 3689, 1458333495, "897482", 1458333495, "897482", null, "Dengue§", "MAINE", "2016", "4", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 3756, "B6D468C5-9ED4-4170-B989-88452507F549", 3756, 1458333495, "897482", 1458333495, "897482", null, "Dengue§", "MAINE", "2016", "5", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 3823, "B3AFA273-13AF-4360-96F8-96D5BF25B363", 3823, 1458333495, "897482", 1458333495, "897482", null, "Dengue§", "MAINE", "2016", "6", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 3890, "65696DC4-0E80-4202-9B1E-35996B520104", 3890, 1458333495, "897482", 1458333495, "897482", null, "Dengue§", "MAINE", "2016", "7", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 3957, "B2E5B3B1-A4CB-4206-BD87-CCE1682B5281", 3957, 1458333495, "897482", 1458333495, "897482", null, "Dengue§", "MAINE", "2016", "8", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4024, "E1A343C1-E530-4112-892D-A0BB75CB1696", 4024, 1458333495, "897482", 1458333495, "897482", null, "Dengue§", "MAINE", "2016", "9", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4091, "63997C5C-518D-4D62-B807-2FC118D53CCD", 4091, 1458333495, "897482", 1458333495, "897482", null, "Dengue§", "MAINE", "2016", "10", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4158, "AAFEDF07-BD35-4BA5-A222-5F4EC63A2AA2", 4158, 1458333495, "897482", 1458333495, "897482", null, "Dengue Severe", "MAINE", "2016", "1", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4225, "C249C6A4-7DB6-4B7F-99B1-0C171229D5CB", 4225, 1458333495, "897482", 1458333495, "897482", null, "Dengue Severe", "MAINE", "2016", "2", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4292, "C7F76BC0-FE51-4F96-8F07-8F33839B2258", 4292, 1458333495, "897482", 1458333495, "897482", null, "Dengue Severe", "MAINE", "2016", "2", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4359, "71A50537-2247-4A5F-8575-AE565DAFBACF", 4359, 1458333495, "897482", 1458333495, "897482", null, "Dengue Severe", "MAINE", "2016", "3", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4426, "475A9BA7-681F-46B2-B89E-B7D75F3EADBA", 4426, 1458333495, "897482", 1458333495, "897482", null, "Dengue Severe", "MAINE", "2016", "4", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4493, "54BF9A83-62A6-42C6-8B24-D8C53025AC1F", 4493, 1458333495, "897482", 1458333495, "897482", null, "Dengue Severe", "MAINE", "2016", "5", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4560, "0909C669-22D9-44AE-B42F-C122567D3555", 4560, 1458333495, "897482", 1458333495, "897482", null, "Dengue Severe", "MAINE", "2016", "6", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4627, "86BC9D3E-A208-42D0-8B94-AEEAE7C5B533", 4627, 1458333495, "897482", 1458333495, "897482", null, "Dengue Severe", "MAINE", "2016", "7", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4694, "6E09809D-3D56-4BEA-B92C-0E9C9A8A007F", 4694, 1458333496, "897482", 1458333496, "897482", null, "Dengue Severe", "MAINE", "2016", "8", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4761, "283F8013-4919-488A-8490-FF11E4C51EF0", 4761, 1458333496, "897482", 1458333496, "897482", null, "Dengue Severe", "MAINE", "2016", "9", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+, [ 4828, "E442338A-3B16-4158-9A77-DC50821285ED", 4828, 1458333496, "897482", 1458333496, "897482", null, "Dengue Severe", "MAINE", "2016", "10", null, "-", "0", null, "0", null, null, "-", null, "-" ]
+ ]
+}

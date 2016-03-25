@@ -1,0 +1,28 @@
+html {
+    font-family: Lato;
+    color: #35342f;
+}
+body {
+    background:  url(http://mbostock.github.io/d3/talk/20111018/texture-noise.png)
+}
+
+path {
+  fill: none;
+  stroke: #111;
+  stroke-width: .5px;
+}
+.state {
+}
+
+#chartcontainer {
+  padding-top: 20px;
+  border:2px solid #d0d0d0;
+  border-radius: 5px;
+}
+
+/* Override zeroth value in colorbrewer*/
+/*.YlOrBr .q0-9{fill: #B3B3B3 }*/
+
+.no-data{
+  fill: gray;
+}
