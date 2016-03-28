@@ -26,10 +26,11 @@
     %script{:src => "js/d3.slider.js"}
     %script{:src => "js/viz.js"}
 
-  %body{:onload => "sizeChange()"}
+  %body{:onload => "MapViz.sizeChange()"}
     .container-fluid
       %h1
         Health Map
-      #slider7
-      #chartcontainer
+      #sliderContainer
+        #mapSlider
+      #mapViz
 

@@ -26,13 +26,15 @@
     <script src='js/d3.slider.js'></script>
     <script src='js/viz.js'></script>
   </head>
-  <body onload='sizeChange()'>
+  <body onload='MapViz.sizeChange()'>
     <div class='container-fluid'>
       <h1>
         Health Map
       </h1>
-      <div id='slider7'></div>
-      <div id='chartcontainer'></div>
+      <div id='sliderContainer'>
+        <div id='mapSlider'></div>
+      </div>
+      <div id='mapViz'></div>
     </div>
   </body>
 </html>
