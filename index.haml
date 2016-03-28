@@ -16,16 +16,20 @@
     %script{:src => "js/topojson.v1.js"}
     %link{:href => "css/colorbrewer.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "css/style.css", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "css/d3.slider.css", :rel => "stylesheet"}
 
     / jQuery (necessary for Bootstrap's JavaScript plugins)
     %script{:src => "js/jquery.min.js"}
     / Include all compiled plugins (below), or include individual files as needed
     %script{:src => "js/bootstrap.js"}
     %script{:src => "js/underscore-min.js"}
+    %script{:src => "js/d3.slider.js"}
     %script{:src => "js/viz.js"}
 
   %body{:onload => "sizeChange()"}
     .container-fluid
       %h1
         Health Map
+      #slider7
       #chartcontainer
+
