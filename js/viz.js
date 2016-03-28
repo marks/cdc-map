@@ -30,6 +30,9 @@ var MapViz = {
   week:1,
   method:'cum_2015',
 
+  // Loading Hacks
+  mapLoaded: false,
+
   init: function() {
 
     d3.select(window).on("resize",MapViz.sizeChange);
@@ -63,7 +66,7 @@ var MapViz = {
       .attr("width", "100%")
           .append("g");
 
-    MapViz.sizeChange();
+
 
     svg.selectAll(".state") // Select state objects (which don't exist yet)
         .data(this.us.features) // bind data to the non-existent objexts
@@ -73,24 +76,21 @@ var MapViz = {
 
     MapViz.colorMap(this.disease,this.year,this.week,this.method);
 
-    // var rr = d3.range(1,10);
-    // for (var i = rr.length - 1; i >= 0; i--) {
-    //   MapViz.sequenceMap('Chlamydia trachomatis infection','2016',rr[i],'cum_2015');
-    // }
-
-    // animation chorpleth http://bl.ocks.org/rgdonohue/9280446
-    console.log(this.us);
-
     MapViz.drawSlider()
+
+    MapViz.sizeChange();
 
   },
 
   drawSlider: function() {
+    if (MapViz.mapLoaded) {
+      // d3.select('.week-slider')
+    }
+    console.log("drawing slider");
     d3.select(MapViz.sliderSelector).remove();
     d3.select("#sliderContainer").append("div").attr("id", MapViz.sliderSelector.replace("#",""));
 
     var range = MapViz.getWeekRange(MapViz.disease,MapViz.year);
-    console.log("week range: " + range);
     d3.select(MapViz.sliderSelector).call(
       d3.slider().axis(true).min(range[0]).max(range[1]).step(1)
         .on("slide" , function(evt,value) {
@@ -108,6 +108,7 @@ var MapViz = {
          var le_color = MapViz.getColor(currentValue, dataRange);
          return le_color;
       });
+      MapViz.mapLoaded = true;
   },
 
   sequenceMap: function(disease,year,week,method) {
@@ -169,10 +170,12 @@ var MapViz = {
 
   sizeChange: function() {// resize example http://bl.ocks.org/jczaplew/4444770
     console.log("Resizing");
-    console.log("Selector: " + MapViz.mapSelector);
     d3.select("#mapViz g").attr("transform", "scale(" + $("#mapViz").width()/900 + ")");
     $("svg").height($("#mapViz").width()*0.618);
-    MapViz.drawSlider();
+
+    if (MapViz.mapLoaded) {
+      MapViz.drawSlider();
+    }
   },
 
   processData: function(){
@@ -272,7 +275,6 @@ var MapViz = {
       var year = fProperties.nested_data[disease][year];
       var weeks = _.keys(year);
       var maxWeek = Number(weeks.pop())
-      console.log(maxWeek);
       return maxWeek;
     } catch(err){
          console.log("DEBUG: Weeks don't exist for this input combination -> " +

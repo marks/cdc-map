@@ -27,10 +27,39 @@
     %script{:src => "js/viz.js"}
 
   %body{:onload => "MapViz.sizeChange()"}
-    .container-fluid
-      %h1
-        Health Map
-      #sliderContainer
-        #mapSlider
-      #mapViz
+    .container
+      %h1.row-fluid
+        CDC NNDSS Map
+      %p.row-fluid
+        This map uses data from NNDSS - Table II. In this data, provisional cases of selected notifiable diseases (≥1,000 cases reported during the preceding year), and selected low frequency diseases are displayed.The Table includes total number of cases reported in the United States, by region and by states, in accordance with the current method of displaying MMWR data. Data on United States exclude counts from US territories. Note:These are provisional cases of selected national notifiable diseases, from the National Notifiable Diseases Surveillance System (NNDSS). NNDSS data reported by the 50 states, New York City, the District of Columbia, and the U.S. territories are collated and published weekly as numbered tables printed in the back of the Morbidity and Mortality Weekly Report (MMWR). Cases reported by state health departments to CDC for weekly publication are provisional because of ongoing revision of information and delayed reporting.
+      .col-sm-2.col-xs-12
+        %h3 Pick
+        .drop-downs
+        .col-md-12.col-sm-12.col-xs-6
+          %p Drop Down
+          %p Drop Down
+        .col-md-12.col-sm-12.col-xs-6
+          %p Drop Down
+
+      .col-sm-10.col-xs-12
+        .map.row-fluid
+          #mapViz
+        .week-slider.row
+      .row
+        .slider-desription.dontDisplay
+          .col-xs-1
+          .col-xs-10
+            %h5 Choose a week to display
+          .col-xs-1
+      .row
+        .col-xs-1
+        .col-xs-10
+          #sliderContainer
+            #mapSlider
+        .col-xs-1
+      / .description.row
+      /   .col-xs-6
+      /     %p
+      /       Displaying
+      /       %span Week X
 
