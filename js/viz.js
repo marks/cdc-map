@@ -7,7 +7,7 @@ var dataPath = 'data/nmaj-nshg.json';
 
 // Color
 var colorScheme = 'YlOrBr' // http://mbostock.github.io/d3/talk/20111018/choropleth.html
-
+var YlOrBr = ["#ffffe5","#fff7bc","#fee391","#fec44f","#fe9929","#ec7014","#cc4c02","#993404","#662506"];
 d3.select(window).on("resize",sizeChange);
 
 var projection = d3.geo.albersUsa()
@@ -17,6 +17,7 @@ var path = d3.geo.path()
 
 function init() {
   setMap();
+
 }
 
 function setMap() {
@@ -36,7 +37,6 @@ function drawMap(us){
   var svg = d3.select("#chartcontainer")
     .append("svg")
     .attr("width", "100%")
-    .attr("class", colorScheme)
         .append("g");
 
   sizeChange();
@@ -50,22 +50,27 @@ function drawMap(us){
       .attr("class", "state");
 
 
-  var disease = 'Babesiosis' ;
+  var disease = 'Chlamydia trachomatis infection' ;
   var year = '2016';
-  var week = 1;
-  var method = 'previous_52_weeks_max';
+  var week = 10;
+  var method = 'current_week';
+
 
 
   colorMap(disease,year,week,method);
-  // var rr = d3.range(1,10);
-  // for (var i = rr.length - 1; i >= 0; i--) {
-  //   sequenceMap(disease,year,rr[i],method);
-  //   console.log(rr[i]);
-  // }
+
+  var rr = d3.range(1,10);
+  for (var i = rr.length - 1; i >= 0; i--) {
+    sequenceMap('Chlamydia trachomatis infection','2016',rr[i],'cum_2015');
+  }
 
   // animation chorpleth http://bl.ocks.org/rgdonohue/9280446
   console.log(us);
 
+  d3.select('#slider7').call(
+        d3.slider().axis(true).min(1).max(52).step(1).on("slide" , function(evt,value) {
+            sequenceMap('Chlamydia trachomatis infection','2016',value,'cum_2015')
+        }) );
 
 }
 
@@ -73,34 +78,34 @@ function colorMap(disease,year,week,method) {
   // Give each state a color based on the filter of disease,year,week, and method.
   var dataRange = getDataRange(disease,year,week,method);
   d3.selectAll('.state')
-    .attr('class',function(d) {
+    .style('fill', function(d){
        var currentValue = getValueFromNest(d.properties,disease,year,week,method);
        setCurrentData(d.properties,currentValue,disease,year,week,method);
-       return getColor(currentValue, dataRange) + ' '+ d3.select(this).attr("class");
+       var le_color = getColor(currentValue, dataRange);
+       return le_color;
     });
 }
 
 function sequenceMap(disease,year,week,method) {
-  console.log("sequencing");
   var dataRange = getDataRange(disease,year,week,method);
   d3.selectAll('.state').transition() // select all states and prepare for a transition
-    .duration(750) // period from transition
-    .attr('class',function(d) {
+    .duration(10) // period from transition
+    .style('fill', function(d){
        var currentValue = getValueFromNest(d.properties,disease,year,week,method);
-       console.log("currentValue: "+ currentValue);
        setCurrentData(d.properties,currentValue,disease,year,week,method);
-       return getColor(currentValue, dataRange) +' '+ d3.select(this).attr("class");
+       var le_color = getColor(currentValue, dataRange);
+       return le_color;
     });
 }
 
 function getColor (value,range) {
-  if (value == -1) {
-    return 'no-data';
+  if (value == -1 | value == undefined) {
+    return '#CCC7C8'; // no data.
   } else {
     var q = d3.scale.quantize()
       .domain([range[0],range[1]])
-      .range(d3.range(9));
-    return  "q"+q(value) + "-9";
+      .range(YlOrBr);
+    return  q(value);
   }
 }
 
@@ -191,7 +196,7 @@ function setCurrentData(fProperties,value,disease,year,week,method){
   fProperties.currentData = currentData;
 }
 function getCurrentValue(fProperties){
-  return fProperties.currentData.value = value;
+  return fProperties.currentData.value;
 }
 
 function getValueFromNest(fProperties,disease,year,week,method){
@@ -221,3 +226,4 @@ function getValueFromNest(fProperties,disease,year,week,method){
 }
 
 window.onload = init();
+
