@@ -11,7 +11,11 @@ path {
   stroke: #111;
   stroke-width: .5px;
 }
-.state {
+/*.state {
+}*/
+
+.state:hover {
+    fill: red;
 }
 
 #mapViz {
@@ -38,7 +42,9 @@ path {
   margin-bottom: 5px !important;
 
 }
-
+#play{
+    margin-top: 50% !important;
+}
 .nopadding {
     padding: 0 !important;
     margin: 0 !important;
@@ -48,4 +54,31 @@ path {
     vertical-align: middle !important;
     float: none !important;
     height: 200px; !important;
+}
+
+.hidden {
+    display: none;
+}
+div.tooltip {
+    color: #222;
+    background-color: #fff;
+    padding: .5em;
+    text-shadow: #f5f5f5 0 1px 0;
+    border-radius: 2px;
+    opacity: 0.9;
+    position: absolute;
+}
+
+#legend {
+    padding: 1.5em 0 0 1.5em;
+    list-style: none;
+}
+
+li.key {
+    border-left-width: 15px;
+    border-left-style: solid;
+    font-size: .75em;
+    /*width: 10%;*/
+    padding-left: 12px;
+    padding-right: 0;
 }

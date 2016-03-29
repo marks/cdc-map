@@ -17,8 +17,13 @@ var MapViz = {
   mapSelector: "#mapViz",
   sliderSelector:"#mapSlider",
 
+  // d3 selections
+  mapSVG: null,
+  tooltip:null,
+
   // Color Scheme
   YlOrBr : ["#ffffe5","#fff7bc","#fee391","#fec44f","#fe9929","#ec7014","#cc4c02","#993404","#662506"],
+  q: null, // Scale
 
   // Projection
   projection: null,
@@ -63,7 +68,7 @@ var MapViz = {
         MapViz.data = data;
         MapViz.processData();
         MapViz.populateDropDowns();
-        MapViz.drawMap();
+        MapViz.initMap();
         MapViz.animateMap();
       });
     });
@@ -105,54 +110,73 @@ var MapViz = {
 
   },
 
-  drawMap: function(){
+  initMap: function(){
     // Projection
     this.projection =  d3.geo.albersUsa().scale(1100);
     this.path =  d3.geo.path().projection(this.projection);
 
-    var svg = d3.select(this.mapSelector)
+    MapViz.mapSVG = d3.select(this.mapSelector)
       .append("svg")
       .attr("width", "100%")
           .append("g");
 
-    svg.selectAll(".state") // Select state objects (which don't exist yet)
+    MapViz.mapSVG.selectAll(".state") // Select state objects (which don't exist yet)
         .data(this.us.features) // bind data to the non-existent objexts
       .enter() .append("path") // prepare data to be appended to paths
         .attr("class", "state") // give it a class for styling and access later
         .attr("d", this.path); //Create them using the svg path generator defined above
 
-    console.log("Coloring Map...")
-    console.log(MapViz.us);
-    MapViz.colorMap(this.disease,this.year,this.week,this.method);
 
+    MapViz.tooltip = d3.select('#mapViz').append('div')
+        .attr('class', 'hidden tooltip');
+
+    MapViz.colorMap(this.disease,this.year,this.week,this.method);
+    MapViz.drawLengend()
     MapViz.drawSlider()
 
     MapViz.sizeChange();
 
   },
+  legendKeys: null,
+  drawLengend: function(){
+    // Assumes q (color scale) is set.
+    var legend = d3.select('#legend')
+      .append('ul')
+        .style('list-style','none');
 
-  drawSlider: function() {
-    if (MapViz.mapLoaded) {
-      d3.select('.slider-description').classed('hide',false);
-    }
-    d3.select(MapViz.sliderSelector).remove();
-    d3.select("#sliderContainer").append("div").attr("id", MapViz.sliderSelector.replace("#",""));
+    legend.append('li').attr('class','key')
+      .style('border-left-color', '#CCC7C8').text('No Cases Reported');
 
-    var range = MapViz.getWeekRange(MapViz.disease,MapViz.year);
-    d3.select(MapViz.sliderSelector).call(
-      MapViz.slider = d3.slider().axis(true).min(range[0]).max(range[1]).step(1)
-        .on("slide" , function(evt,value) {
-          MapViz.sequenceMap('Chlamydia trachomatis infection','2016',value,'cum_2015')
-      }));
+    var colors = MapViz.q;
+    MapViz.legendKeys = legend.selectAll('li.key')
+      .data(MapViz.q.range())
+      .enter().append('li')
+      .attr('class','key')
+      .style('border-left-color', String)
+      .text(function(d) {
+        var r = colors.invertExtent(d);
+        return d3.round(r[0]) +" - " + d3.round(r[1]) + ' cases' ;
+      });
+  },
+  updateLegend: function(){
+    var colors = MapViz.q;
+    MapViz.legendKeys
+      .text(function(d) {
+        var r = colors.invertExtent(d);
+        return d3.round(r[0]) +" - " + d3.round(r[1]) + ' cases' ;
+      });
+
+    if (MapViz.playing) {
+      MapViz.legendKeys.transition()
+      .duration(1)
+      .text(function(d) {
+        var r = colors.invertExtent(d);
+        return d3.round(r[0]) +" - " + d3.round(r[1]) + ' cases' ;
+      });
+    };
+
   },
 
-  updateSliderTick: function(){
-  // Makes the slider reflect the current week as per MapViz.week
-
-    console.log("Slider: " + MapViz.week);
-    MapViz.slider.value(MapViz.week);
-
-  },
 
   colorMap: function(disease,year,week,method) {
     // Give each state a color based on the filter of disease,year,week, and method.
@@ -163,7 +187,21 @@ var MapViz = {
          MapViz.setCurrentData(d.properties,currentValue,disease,year,week,method);
          var le_color = MapViz.getColor(currentValue, dataRange);
          return le_color;
+      })
+      .on('mousemove',function(d){
+        var mouse = d3.mouse(d3.select("svg g").node()).map(function(d) {
+          return parseInt(d);
+        });
+        MapViz.tooltip.classed('hidden',false)
+          .attr('style', 'left:' + (mouse[0] + 15) +
+            'px; top:' + (mouse[1] - 35) + 'px')
+          .html("State: " + d.properties.NAME + "<br>" +
+                "Cases: " + d.properties.currentData.value);
+      })
+      .on('mouseout', function() {
+        MapViz.tooltip.classed('hidden', true);
       });
+
       MapViz.mapLoaded = true;
   },
 
@@ -176,7 +214,8 @@ var MapViz = {
          MapViz.setCurrentData(d.properties,currentValue,disease,year,week,method);
          var le_color = MapViz.getColor(currentValue, dataRange);
          return le_color;
-      });
+      })
+    MapViz.updateLegend()
   },
 
   getColor: function (value,range) {
@@ -186,6 +225,7 @@ var MapViz = {
       var q = d3.scale.quantize()
         .domain([range[0],range[1]])
         .range(MapViz.YlOrBr);
+      MapViz.q = q;
       return  q(value);
     }
   },
@@ -210,6 +250,31 @@ var MapViz = {
 
       return [min,max];
   },
+
+  ///
+  /// Slider
+  ///
+  drawSlider: function() {
+    if (MapViz.mapLoaded) {
+      d3.select('.slider-description').classed('hide',false);
+    }
+    d3.select(MapViz.sliderSelector).remove();
+    d3.select("#sliderContainer").append("div").attr("id", MapViz.sliderSelector.replace("#",""));
+
+    var range = MapViz.getWeekRange(MapViz.disease,MapViz.year);
+    d3.select(MapViz.sliderSelector).call(
+      MapViz.slider = d3.slider().axis(true).min(range[0]).max(range[1]).step(1)
+        .on("slide" , function(evt,value) {
+          MapViz.sequenceMap('Chlamydia trachomatis infection','2016',value,'cum_2015')
+      }));
+  },
+
+  updateSliderTick: function(){
+  // Makes the slider reflect the current week as per MapViz.week
+  MapViz.slider.value(MapViz.week);
+
+  },
+
   getWeekRange: function(disease,year){
     // Loops through all the data values for the given paramenter combo
     // and returns the min and the max values.
@@ -355,7 +420,6 @@ var MapViz = {
     var timer; //create timer object
     d3.select('#play')
       .on('click', function() {  // when user clicks the play button
-        console.log("Clicked Play")
         if(MapViz.playing == false) {  // if the map is currently playing
           // MapViz.debug = 0;
           timer = setInterval(function(){   // set a JS interval
@@ -365,12 +429,13 @@ var MapViz = {
               MapViz.week = 1;  // or reset it to zero
             }
             MapViz.sequenceMap(MapViz.disease,MapViz.year,MapViz.week,MapViz.method);  // update the representation of the map
+
             MapViz.updateSliderTick();
-             // d3.select('#clock').html(attributeArray[currentAttribute]);  // update the clock
+
            }
            , 500);
 
-          d3.select(this).html('stop');  // change the button label to stop
+          d3.select(this).html('Stop');  // change the button label to stop
           MapViz.playing = true;   // change the status of the animation
         } else {    // else if is currently playing
            clearInterval(timer);   // stop the animation by clearing the interval
