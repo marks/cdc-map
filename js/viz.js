@@ -265,7 +265,8 @@ var MapViz = {
     d3.select(MapViz.sliderSelector).call(
       MapViz.slider = d3.slider().axis(true).min(range[0]).max(range[1]).step(1)
         .on("slide" , function(evt,value) {
-          MapViz.sequenceMap('Chlamydia trachomatis infection','2016',value,'cum_2015')
+          MapViz.week = value;
+          MapViz.sequenceMap(MapViz.disease,MapViz.year,MapViz.week,MapViz.method)
       }));
   },
 
