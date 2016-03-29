@@ -7,7 +7,8 @@ var MapViz = {
   bug : null,
   // Data Paths
   mapPath: "data/us4.json",
-  dataPath: 'data/nmaj-nshg.json',
+  // dataPath: 'data/nmaj-nshg.json',
+  dataPath: 'https://cdc-science.demo.socrata.com/resource/nmaj-nshg.json?$limit=10000',
 
   // Data
   us: null, // US Map GeoJson
@@ -434,7 +435,7 @@ var MapViz = {
             MapViz.updateSliderTick();
 
            }
-           , 500);
+           , 1000);
 
           d3.select(this).html('Stop');  // change the button label to stop
           MapViz.playing = true;   // change the status of the animation

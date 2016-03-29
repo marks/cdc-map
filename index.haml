@@ -39,9 +39,12 @@
         .row
           .drop-downs
           .col-md-12.col-sm-12.col-xs-6
+            %h6 Select disease:
             %select.selectpicker#diseases{"data-live-search" => "true"}
+            %h6 Select Year:
             %select.selectpicker#years
           .col-md-12.col-sm-12.col-xs-6
+            %h6 Select Metric:
             %select.selectpicker#methods
         .row
           #legend
@@ -49,9 +52,9 @@
         .map.row-fluid
           #mapViz
         .week-slider.row
-      .col-sm-1.col-xs-2
+      .col-sm-1.col-xs-1
         %button.btn.btn-primary#play{:type => "button"} Play
-      .col-sm-11.col-xs-10
+      .col-sm-11.col-xs-11
         .row
           .slider-desription
             .col-xs-11
