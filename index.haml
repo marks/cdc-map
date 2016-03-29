@@ -47,18 +47,20 @@
         .map.row-fluid
           #mapViz
         .week-slider.row
-      .row
-        .slider-desription
+      .col-xs-1
+        .vcenter
+          %button.btn.btn-primary#play{:type => "button"} Play
+      .col-xs-11
+        .row
+          .slider-desription
+            .col-xs-11
+              %h5 Choose a week to display
+            .col-xs-1
+        .row
+          .col-xs-11
+            #sliderContainer
+              #mapSlider
           .col-xs-1
-          .col-xs-10
-            %h5 Choose a week to display
-          .col-xs-1
-      .row
-        .col-xs-1
-        .col-xs-10
-          #sliderContainer
-            #mapSlider
-        .col-xs-1
       / .description.row
       /   .col-xs-6
       /     %p

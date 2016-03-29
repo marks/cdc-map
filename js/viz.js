@@ -38,6 +38,12 @@ var MapViz = {
   // Loading Hacks
   mapLoaded: false,
 
+  // Animation logic,
+  playing: false,
+
+  // Slider OBj
+  slider: null,
+
   init: function() {
 
     d3.select(window).on("resize",MapViz.sizeChange);
@@ -58,6 +64,7 @@ var MapViz = {
         MapViz.processData();
         MapViz.populateDropDowns();
         MapViz.drawMap();
+        MapViz.animateMap();
       });
     });
   },
@@ -94,9 +101,6 @@ var MapViz = {
       });
 
     });
-
-      console.log(MapViz.years);
-      console.log(MapViz.diseases);
 
 
   },
@@ -136,10 +140,18 @@ var MapViz = {
 
     var range = MapViz.getWeekRange(MapViz.disease,MapViz.year);
     d3.select(MapViz.sliderSelector).call(
-      d3.slider().axis(true).min(range[0]).max(range[1]).step(1)
+      MapViz.slider = d3.slider().axis(true).min(range[0]).max(range[1]).step(1)
         .on("slide" , function(evt,value) {
           MapViz.sequenceMap('Chlamydia trachomatis infection','2016',value,'cum_2015')
       }));
+  },
+
+  updateSliderTick: function(){
+  // Makes the slider reflect the current week as per MapViz.week
+
+    console.log("Slider: " + MapViz.week);
+    MapViz.slider.value(MapViz.week);
+
   },
 
   colorMap: function(disease,year,week,method) {
@@ -209,6 +221,7 @@ var MapViz = {
           maxWeek = localWeekMax;
         }
       });
+    MapViz.maxWeek = maxWeek;
     return [minWeek,maxWeek];
   },
 
@@ -334,6 +347,37 @@ var MapViz = {
                    "disease: "+ disease + ", year: " + year + ". Error: " + err);
          return 1;
     }
+  },
+
+
+
+  animateMap :function() {
+    var timer; //create timer object
+    d3.select('#play')
+      .on('click', function() {  // when user clicks the play button
+        console.log("Clicked Play")
+        if(MapViz.playing == false) {  // if the map is currently playing
+          // MapViz.debug = 0;
+          timer = setInterval(function(){   // set a JS interval
+            if(MapViz.week < MapViz.maxWeek) {
+              MapViz.week +=1;  // increment the current attribute counter
+            } else {
+              MapViz.week = 1;  // or reset it to zero
+            }
+            MapViz.sequenceMap(MapViz.disease,MapViz.year,MapViz.week,MapViz.method);  // update the representation of the map
+            MapViz.updateSliderTick();
+             // d3.select('#clock').html(attributeArray[currentAttribute]);  // update the clock
+           }
+           , 500);
+
+          d3.select(this).html('stop');  // change the button label to stop
+          MapViz.playing = true;   // change the status of the animation
+        } else {    // else if is currently playing
+           clearInterval(timer);   // stop the animation by clearing the interval
+           d3.select(this).html('play');   // change the button label to play
+           MapViz.playing = false;   // change the status again
+        }
+      });
   }
 }
 
