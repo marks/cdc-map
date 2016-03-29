@@ -30,5 +30,14 @@ path {
     margin-top: -25px;
 }
 .hide {
-    visibility: hidden;
+    /*visibility: hidden;*/
+}
+
+.bootstrap-select {
+    width: 100% !important;
+}
+
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
 }

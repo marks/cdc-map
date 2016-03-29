@@ -17,6 +17,7 @@
     %link{:href => "css/colorbrewer.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "css/style.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "css/d3.slider.css", :rel => "stylesheet"}
+    %link{:href => "css/bootstrap-select.css", :rel => "stylesheet"}
 
     / jQuery (necessary for Bootstrap's JavaScript plugins)
     %script{:src => "js/jquery.min.js"}
@@ -24,6 +25,7 @@
     %script{:src => "js/bootstrap.js"}
     %script{:src => "js/underscore-min.js"}
     %script{:src => "js/d3.slider.js"}
+    %script{:src => "js/bootstrap-select.js"}
     %script{:src => "js/viz.js"}
 
   %body{:onload => "MapViz.sizeChange()"}
@@ -32,21 +34,30 @@
         CDC NNDSS Map
       %p.row-fluid
         This map uses data from NNDSS - Table II. In this data, provisional cases of selected notifiable diseases (≥1,000 cases reported during the preceding year), and selected low frequency diseases are displayed.The Table includes total number of cases reported in the United States, by region and by states, in accordance with the current method of displaying MMWR data. Data on United States exclude counts from US territories. Note:These are provisional cases of selected national notifiable diseases, from the National Notifiable Diseases Surveillance System (NNDSS). NNDSS data reported by the 50 states, New York City, the District of Columbia, and the U.S. territories are collated and published weekly as numbered tables printed in the back of the Morbidity and Mortality Weekly Report (MMWR). Cases reported by state health departments to CDC for weekly publication are provisional because of ongoing revision of information and delayed reporting.
-      .col-sm-2.col-xs-12
+      .col-sm-2.col-xs-12.nopadding
         %h3 Pick
         .drop-downs
         .col-md-12.col-sm-12.col-xs-6
-          %p Drop Down
-          %p Drop Down
+          %select.selectpicker
+            %option Ehrlichiosis/Anaplasmosis (Anaplasma phagocytophilum)
+            %option Disease 2
+            %option Disease 3
+          %select.selectpicker
+            %option Year 1
+            %option Year 2
+            %option Year 3
         .col-md-12.col-sm-12.col-xs-6
-          %p Drop Down
+          %select.selectpicker
+            %option Method 1
+            %option Ehrlichiosis/Anaplasmosis (Anaplasma phagocytophilum)
+            %option Method 3
 
-      .col-sm-10.col-xs-12
+      .col-sm-10.col-xs-12.nopadding
         .map.row-fluid
           #mapViz
         .week-slider.row
       .row
-        .slider-desription.dontDisplay
+        .slider-desription
           .col-xs-1
           .col-xs-10
             %h5 Choose a week to display

@@ -84,7 +84,7 @@ var MapViz = {
 
   drawSlider: function() {
     if (MapViz.mapLoaded) {
-      // d3.select('.week-slider')
+      d3.select('.slider-description').classed('hide',false);
     }
     console.log("drawing slider");
     d3.select(MapViz.sliderSelector).remove();
@@ -288,3 +288,7 @@ var MapViz = {
 
 window.onload = MapViz.init();
 
+$('.selectpicker').selectpicker({
+  style: 'btn-info',
+  width: 'fit'
+});
