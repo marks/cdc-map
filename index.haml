@@ -38,19 +38,10 @@
         %h3 Pick
         .drop-downs
         .col-md-12.col-sm-12.col-xs-6
-          %select.selectpicker
-            %option Ehrlichiosis/Anaplasmosis (Anaplasma phagocytophilum)
-            %option Disease 2
-            %option Disease 3
-          %select.selectpicker
-            %option Year 1
-            %option Year 2
-            %option Year 3
+          %select.selectpicker#diseases{"data-live-search" => "true"}
+          %select.selectpicker#years
         .col-md-12.col-sm-12.col-xs-6
-          %select.selectpicker
-            %option Method 1
-            %option Ehrlichiosis/Anaplasmosis (Anaplasma phagocytophilum)
-            %option Method 3
+          %select.selectpicker#methods
 
       .col-sm-10.col-xs-12.nopadding
         .map.row-fluid

@@ -24,6 +24,11 @@ var MapViz = {
   projection: null,
   path: null,
 
+  // Data Filters arrays.
+  diseases: null,
+  years: null,
+  methods: ['previous_52_weeks_max', 'previous_52_weeks_med','cum_2015','cum_2016'],
+
   // Current User-Defined Filters (and Defaults)
   disease:'Chlamydia trachomatis infection',
   year:'2016',
@@ -50,10 +55,50 @@ var MapViz = {
         if (error) {return console.error(error)};
         MapViz.us = us;
         MapViz.data = data;
-        MapViz.processData()
+        MapViz.processData();
+        MapViz.populateDropDowns();
         MapViz.drawMap();
       });
     });
+  },
+
+  populateDropDowns: function(){
+    // Expectes filter arrays to be populated during ProcessData
+    // console.log(MapViz.us.features);
+    // Prepopulate
+    var selectors = ['diseases','years','methods']
+    _.each(selectors,function(ss) {
+      var s = ss.slice(0,-1);
+      MapViz[s] = Array.from(MapViz[ss])[0] // uses the first elememtn in arr.
+    });
+
+    _.each(selectors,function(ss) {
+      d3.select("#" + ss)
+        .selectAll("option")
+        .data(Array.from(MapViz[ss]))
+       .enter()
+        .append("option")
+        .html(function(d){return d})
+        .attr("value",function(d){return d});
+
+      $('.selectpicker').selectpicker('refresh');
+      $("#" + ss).on('changed.bs.select', function(event,i) {
+        // We need to update the currently selected filter
+        // when the dropdown is changed.
+        var currentFilter = ss.slice(0,-1); // Removes the s in the selector.
+        MapViz[currentFilter] = Array.from(MapViz[ss])[i];// Assigns the selected disease/year/method to the current filters.
+
+        MapViz.drawSlider()
+        MapViz.sequenceMap(MapViz.disease,MapViz.year,MapViz.week,MapViz.method);
+
+      });
+
+    });
+
+      console.log(MapViz.years);
+      console.log(MapViz.diseases);
+
+
   },
 
   drawMap: function(){
@@ -66,14 +111,14 @@ var MapViz = {
       .attr("width", "100%")
           .append("g");
 
-
-
     svg.selectAll(".state") // Select state objects (which don't exist yet)
         .data(this.us.features) // bind data to the non-existent objexts
       .enter() .append("path") // prepare data to be appended to paths
         .attr("class", "state") // give it a class for styling and access later
         .attr("d", this.path); //Create them using the svg path generator defined above
 
+    console.log("Coloring Map...")
+    console.log(MapViz.us);
     MapViz.colorMap(this.disease,this.year,this.week,this.method);
 
     MapViz.drawSlider()
@@ -86,7 +131,6 @@ var MapViz = {
     if (MapViz.mapLoaded) {
       d3.select('.slider-description').classed('hide',false);
     }
-    console.log("drawing slider");
     d3.select(MapViz.sliderSelector).remove();
     d3.select("#sliderContainer").append("div").attr("id", MapViz.sliderSelector.replace("#",""));
 
@@ -169,7 +213,6 @@ var MapViz = {
   },
 
   sizeChange: function() {// resize example http://bl.ocks.org/jczaplew/4444770
-    console.log("Resizing");
     d3.select("#mapViz g").attr("transform", "scale(" + $("#mapViz").width()/900 + ")");
     $("svg").height($("#mapViz").width()*0.618);
 
@@ -180,10 +223,14 @@ var MapViz = {
 
   processData: function(){
     /// "us" is the geojson, "data" has the the values we want to plug in
+
+    // Initiate Data Filter Sets
+    MapViz.diseases = new Set();
+    MapViz.years = new Set();
+
     // Groupby Country data.
     var byReportingArea  = _.groupBy(MapViz.data,'reporting_area');
 
-    console.log(MapViz.us);
     // Join data by country.
     for (var i in MapViz.us.features){
       for (var areaName in byReportingArea){
@@ -210,10 +257,16 @@ var MapViz = {
 
     // GroupBy Disease
     var byDisease = _.groupBy(data,'disease')
+
+    // Add Diseases to Data Filter Set.
+    _.each(_.keys(byDisease), function(d) { MapViz.diseases.add(d);});
+
     // Add Groupby Year
     var byDiseaseAndYear = {}
     _.each(byDisease,function(disease,d_key){
-      byDiseaseAndYear[d_key] = _.groupBy(disease,'mmwr_year')
+      byDiseaseAndYear[d_key] = _.groupBy(disease,'mmwr_year');
+      // Add Years to Data Filter Set.
+      _.each(_.keys(byDiseaseAndYear[d_key]), function(d) {MapViz.years.add(d)});
     });
     // Add GroubBy Week
     var byDiseaseAndYearAndWeek = {}
@@ -260,12 +313,12 @@ var MapViz = {
     }
     catch(err) {
       console.log("DEBUG: The Value doesn't exist for this input combination -> " +
-                   "disease: "+ disease + ", year: " + year + ", week: "+ week + ", method: " + method );
+                   "disease: "+ disease + ", year: " + year + ", week: "+ week + ", method: " + method + " Area: " + fProperties.NAME);
     }
     if (value == undefined) {
       var value = -1;
           console.log("DEBUG: The Value doesn't exist for this input combination -> " +
-                   "disease: "+ disease + ", year: " + year + ", week: "+ week + ", method: " + method );
+                   "disease: "+ disease + ", year: " + year + ", week: "+ week + ", method: " + method  + " Area: " + fProperties.NAME);
     }
     return value;
   },
@@ -287,8 +340,3 @@ var MapViz = {
 
 
 window.onload = MapViz.init();
-
-$('.selectpicker').selectpicker({
-  style: 'btn-info',
-  width: 'fit'
-});
