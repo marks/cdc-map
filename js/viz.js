@@ -5,6 +5,7 @@
 var MapViz = {
   // Console-accessible var
   bug : null,
+
   // Data Paths
   mapPath: "data/us4.json",
   // dataPath: 'data/nmaj-nshg.json',
