@@ -11,18 +11,79 @@ path {
   stroke: #111;
   stroke-width: .5px;
 }
-.state {
+/*.state {
+}*/
+
+.state:hover {
+    fill: red;
 }
 
-#chartcontainer {
+
+#mapViz {
   padding-top: 20px;
-  border:2px solid #d0d0d0;
+/*  border:2px solid #d0d0d0;
   border-radius: 5px;
-}
-
-/* Override zeroth value in colorbrewer*/
-/*.YlOrBr .q0-9{fill: #B3B3B3 }*/
+*/}
 
 .no-data{
   fill: #E6E6E6;
+}
+.spacer{
+    margin-bottom: 12px;
+}
+.week-slider{
+    margin-top: -25px;
+}
+.hide {
+    /*visibility: hidden;*/
+}
+
+.bootstrap-select {
+  width: 100% !important;
+  margin-bottom: 5px !important;
+
+}
+#play{
+    margin-top: 50% !important;
+}
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.vcenter {
+    display: inline-block !important;
+    vertical-align: middle !important;
+    float: none !important;
+    height: 200px; !important;
+}
+
+.hidden {
+    display: none;
+}
+div.tooltip {
+    color: #222;
+    background-color: #fff;
+    padding: .5em;
+    text-shadow: #f5f5f5 0 1px 0;
+    border-radius: 2px;
+    opacity: 0.9;
+    position: absolute;
+}
+
+#legend {
+    padding: 1.5em 0 0 1.5em;
+    list-style: none;
+}
+
+li.key {
+    border-left-width: 15px;
+    border-left-style: solid;
+    font-size: 1.00em;
+    /*width: 10%;*/
+    padding-left: 12px;
+    padding-right: 0;
+}
+
+div#legend ul {
+    padding-left: 0;
 }

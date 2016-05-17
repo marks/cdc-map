@@ -1,4 +1,6 @@
-Jaime D3 Project Starter Template
+CDC NNDSS Map
 
 
-Contains a basic MVC layout/structure with necessary includes and links to skip the tedious process of starting a d3 project. 
+Used d3.js and Socrata's API's to visualize diseases per state. 
+
+

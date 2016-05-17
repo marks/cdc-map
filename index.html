@@ -18,21 +18,70 @@
     <link href='css/colorbrewer.css' rel='stylesheet' type='text/css'>
     <link href='css/style.css' rel='stylesheet' type='text/css'>
     <link href='css/d3.slider.css' rel='stylesheet'>
+    <link href='css/bootstrap-select.css' rel='stylesheet'>
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src='js/jquery.min.js'></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src='js/bootstrap.js'></script>
     <script src='js/underscore-min.js'></script>
     <script src='js/d3.slider.js'></script>
+    <script src='js/bootstrap-select.js'></script>
     <script src='js/viz.js'></script>
   </head>
-  <body onload='sizeChange()'>
-    <div class='container-fluid'>
-      <h1>
-        Health Map
+  <body onload='MapViz.sizeChange()'>
+    <div class='container'>
+      <h1 class='row-fluid'>
+        CDC NNDSS Map
       </h1>
-      <div id='slider7'></div>
-      <div id='chartcontainer'></div>
+      <p class='row-fluid'>
+        This map uses data from NNDSS - Table II. In this data, provisional cases of selected notifiable diseases (≥1,000 cases reported during the preceding year), and selected low frequency diseases are displayed.The Table includes total number of cases reported in the United States, by region and by states, in accordance with the current method of displaying MMWR data. Data on United States exclude counts from US territories. Note:These are provisional cases of selected national notifiable diseases, from the National Notifiable Diseases Surveillance System (NNDSS). NNDSS data reported by the 50 states, New York City, the District of Columbia, and the U.S. territories are collated and published weekly as numbered tables printed in the back of the Morbidity and Mortality Weekly Report (MMWR). Cases reported by state health departments to CDC for weekly publication are provisional because of ongoing revision of information and delayed reporting.
+      </p>
+      <div class='col-sm-2 col-xs-12 nopadding'>
+        <h3>Pick</h3>
+        <div class='row'>
+          <div class='drop-downs'></div>
+          <div class='col-md-12 col-sm-12 col-xs-6'>
+            <h6>Select disease:</h6>
+            <select class='selectpicker' data-live-search='true' id='diseases'></select>
+            <h6>Select Year:</h6>
+            <select class='selectpicker' id='years'></select>
+          </div>
+          <div class='col-md-12 col-sm-12 col-xs-6'>
+            <h6>Select Metric:</h6>
+            <select class='selectpicker' id='methods'></select>
+          </div>
+        </div>
+        <div class='row'>
+          <div id='legend'></div>
+        </div>
+      </div>
+      <div class='col-sm-10 col-xs-12 nopadding'>
+        <div class='map row-fluid'>
+          <div id='mapViz'></div>
+        </div>
+        <div class='week-slider row'></div>
+      </div>
+      <div class='col-sm-1 col-xs-1'>
+        <button class='btn btn-primary' id='play' type='button'>Play</button>
+      </div>
+      <div class='col-sm-11 col-xs-11'>
+        <div class='row'>
+          <div class='slider-desription'>
+            <div class='col-xs-11'>
+              <h5>Week Number</h5>
+            </div>
+            <div class='col-xs-1'></div>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-11'>
+            <div id='sliderContainer'>
+              <div id='mapSlider'></div>
+            </div>
+          </div>
+          <div class='col-xs-1'></div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
